@@ -1,5 +1,9 @@
 package pl.swa.maintests;
 
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.AfterTest;
@@ -72,7 +76,7 @@ public class NewTest4 {
 		driver.quit();
 		String verificationErrorString = verificationErrors.toString();
 		if (!"".equals(verificationErrorString)) {
-			fail(verificationErrorString);
+			Assert.fail(verificationErrorString);
 		}
 	}
 

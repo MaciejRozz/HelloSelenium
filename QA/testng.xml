@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+  <test name="Test">
+    <classes>
+      <class name="pl.swa.maintests.Tc1"/>
+      <class name="pl.swa.maintests.NewTest4"/>
+      <class name="pl.swa.maintests.NewTest3"/>
+      <class name="pl.swa.maintests.NewTest"/>
+      <class name="pl.swa.maintests.NewTest2"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->

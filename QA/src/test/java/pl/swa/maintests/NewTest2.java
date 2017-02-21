@@ -1,6 +1,9 @@
 package pl.swa.maintests;
 
 import org.testng.annotations.Test;
+import org.testng.Assert;
+import org.testng.AssertJUnit;
+import org.testng.annotations.Test;
 import org.testng.annotations.BeforeTest;
 
 import static org.testng.Assert.fail;
@@ -14,7 +17,9 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeClass;
 
 public class NewTest2 {
 	private WebDriver driver;
@@ -30,13 +35,13 @@ public class NewTest2 {
 		driver.findElement(By.name("q")).sendKeys("wtorek");
 		driver.findElement(By.name("q")).submit();
 		new WebDriverWait(driver, 10).until(ExpectedConditions.titleContains(str));
-		Assert.assertTrue(driver.getTitle().contains(str));
+		AssertJUnit.assertTrue(driver.getTitle().contains(str));
 //		driver.findElement(By.cssSelector("input.submit.search_button")).click();
 //		driver.findElement(By.id("pole_wyszukiwania_search")).clear();
 //		driver.findElement(By.id("pole_wyszukiwania_search")).sendKeys("œroda");
 //		driver.findElement(By.cssSelector("input.search_button.submit")).click();
   }
-  @BeforeTest
+  @BeforeClass
   public void beforeTest() {
 		System.setProperty("webdriver.gecko.driver", "driver/geckodriver.exe");
 		System.setProperty("webdriver.chrome.driver", "driver/chromedriver.exe");
@@ -46,12 +51,12 @@ public class NewTest2 {
 		driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);		
   }
 
-  @AfterTest
+  @AfterClass
   public void afterTest() {
 		driver.quit();
 		String verificationErrorString = verificationErrors.toString();
 		if (!"".equals(verificationErrorString)) {
-			fail(verificationErrorString);
+			Assert.fail(verificationErrorString);
 		}
   }
 

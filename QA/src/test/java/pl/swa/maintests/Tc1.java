@@ -1,5 +1,9 @@
 package pl.swa.maintests;
 
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeMethod;
+import org.testng.Assert;
 import java.util.concurrent.TimeUnit;
 import org.testng.annotations.*;
 import static org.testng.Assert.*;
@@ -14,6 +18,7 @@ public class Tc1 {
 	private boolean acceptNextAlert = true;
 	private StringBuffer verificationErrors = new StringBuffer();
 
+	
 	@BeforeClass(alwaysRun = true)
 	public void setUp() throws Exception {
 		System.setProperty("webdriver.gecko.driver", "driver/geckodriver.exe");
@@ -38,12 +43,13 @@ public class Tc1 {
 		// t= ${licznik} > 1 | ]]
 	}
 
+	
 	@AfterClass(alwaysRun = true)
 	public void tearDown() throws Exception {
 		driver.quit();
 		String verificationErrorString = verificationErrors.toString();
 		if (!"".equals(verificationErrorString)) {
-			fail(verificationErrorString);
+			Assert.fail(verificationErrorString);
 		}
 	}
 

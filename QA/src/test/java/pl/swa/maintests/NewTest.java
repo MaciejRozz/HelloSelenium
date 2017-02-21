@@ -1,11 +1,13 @@
 package pl.swa.maintests;
 
-import static org.junit.Assert.*;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeMethod;
+import org.testng.Assert;
 import static org.testng.Assert.fail;
 
 import java.util.concurrent.TimeUnit;
 
-import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -36,6 +38,7 @@ public class NewTest {
 		String licznik = driver.findElement(By.xpath("//div[@id='contentBox']/div/div[2]/div/strong")).getText();		
 	}
 
+	
 	@BeforeClass(alwaysRun = true)
 	public void setUp() throws Exception {
 		System.setProperty("webdriver.gecko.driver", "C:/selenium/geckodriver.exe");
@@ -52,7 +55,7 @@ public class NewTest {
 		driver.quit();
 		String verificationErrorString = verificationErrors.toString();
 		if (!"".equals(verificationErrorString)) {
-			fail(verificationErrorString);
+			Assert.fail(verificationErrorString);
 		}
 	}
 }
