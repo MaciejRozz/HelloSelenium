@@ -45,8 +45,8 @@ public class NewTest2 {
   public void beforeTest() {
 		System.setProperty("webdriver.gecko.driver", "driver/geckodriver.exe");
 		System.setProperty("webdriver.chrome.driver", "driver/chromedriver.exe");
-		driver = new FirefoxDriver();
-		//driver = new ChromeDriver();
+		//driver = new FirefoxDriver();
+		driver = new ChromeDriver();
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);		
   }
