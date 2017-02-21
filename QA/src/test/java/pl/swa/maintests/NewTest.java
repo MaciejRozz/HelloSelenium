@@ -41,8 +41,8 @@ public class NewTest {
 	
 	@BeforeClass(alwaysRun = true)
 	public void setUp() throws Exception {
-		System.setProperty("webdriver.gecko.driver", "C:/selenium/geckodriver.exe");
-		System.setProperty("webdriver.chrome.driver", "C:/selenium/chromedriver.exe");
+		System.setProperty("webdriver.gecko.driver", "driver/geckodriver.exe");
+		System.setProperty("webdriver.chrome.driver", "driver/chromedriver.exe");
 		//driver = new FirefoxDriver();
 		driver = new ChromeDriver();
 		driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
